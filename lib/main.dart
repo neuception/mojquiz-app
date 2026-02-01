@@ -3,13 +3,14 @@ import 'package:flutter_riverpod/hooks_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'app/app.dart';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Firebase initialization would go here
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
+  await dotenv.load(fileName: ".env");
+  
+  await Firebase.initializeApp();
 
   runApp(
     const ProviderScope(

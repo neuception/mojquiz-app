@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "531429692726",
+    "project_id": "mojquiz-abbd8",
+    "storage_bucket": "mojquiz-abbd8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531429692726:android:90253057d694b28a304f97",
+        "android_client_info": {
+          "package_name": "com.mojquiz.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "531429692726-bd0gum4hj4sk6vcflo8a6otos8f47usi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj3qmNaPXYUNqlLVOygfBJpAhgZITZm9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "531429692726-bd0gum4hj4sk6vcflo8a6otos8f47usi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
