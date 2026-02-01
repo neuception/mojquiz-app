@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "functions/**"
+      - "firebase/functions/**"
 
 jobs:
   deploy:
@@ -28,12 +28,12 @@ jobs:
 
       # 4. Install function dependencies
       - name: Install dependencies
-        working-directory: functions
+        working-directory: firebase/functions
         run: npm install
 
       # 5. Build functions (TypeScript → JS)
       - name: Build functions
-        working-directory: functions
+        working-directory: firebase/functions
         run: npm run build
 
       # 🔐 6. AUTHENTICATE TO GOOGLE CLOUD (THIS IS YOUR PART)

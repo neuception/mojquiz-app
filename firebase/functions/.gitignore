@@ -1,0 +1,19 @@
+# Compiled JavaScript files
+lib/
+
+# TypeScript v1 declaration files
+*.d.ts
+
+# Node.js dependencies
+node_modules/
+
+# Logs
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo

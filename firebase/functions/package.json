@@ -14,14 +14,20 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "axios": "^1.4.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "firebase-admin": "^11.8.0",
     "firebase-functions": "^4.3.1",
-    "axios": "^1.4.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "typescript": "^4.9.0",
-    "firebase-functions-test": "^3.1.0"
+    "@types/express": "^5.0.6",
+    "@types/node": "^18.19.130",
+    "firebase-functions-test": "^3.1.0",
+    "glob": "^13.0.0",
+    "rimraf": "^6.1.2",
+    "typescript": "^5.9.3"
   },
   "private": true
 }
