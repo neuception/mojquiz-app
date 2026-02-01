@@ -10,7 +10,7 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "18"
+    "node": "22"
   },
   "main": "lib/index.js",
   "dependencies": {
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
-    "@types/node": "^18.19.130",
+    "@types/node": "^22.19.7",
     "firebase-functions-test": "^3.1.0",
     "glob": "^13.0.0",
     "rimraf": "^6.1.2",
