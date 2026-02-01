@@ -1,0 +1,60 @@
+{
+  "quizzes": {
+    "quiz_id": {
+      "title": "string",
+      "category": "string",
+      "subcategory": "string",
+      "difficulty": "string",
+      "language": "string",
+      "tags": ["string"],
+      "source": "seed | llm | editorial",
+      "quiz_hash": "string",
+      "created_at": "timestamp",
+      "premium": "boolean"
+    }
+  },
+  "questions": {
+    "question_id": {
+      "quiz_id": "string",
+      "text": "string",
+      "options": ["string"],
+      "correct_answer": "number",
+      "explanation": "string",
+      "question_hash": "string"
+    }
+  },
+  "users": {
+    "uid": {
+      "display_name": "string",
+      "photo_url": "string",
+      "xp": "number",
+      "level": "number",
+      "coins": "number",
+      "streak": "number",
+      "last_played": "timestamp",
+      "badges": ["string"]
+    }
+  },
+  "user_quiz_history": {
+    "{uid}_{quiz_id}": {
+      "uid": "string",
+      "quiz_id": "string",
+      "score": "number",
+      "attempted_at": "timestamp"
+    }
+  },
+  "user_question_history": {
+    "{uid}_{question_hash}": {
+      "uid": "string",
+      "question_hash": "string",
+      "last_answered_at": "timestamp"
+    }
+  },
+  "leaderboards": {
+    "daily": {
+      "entries": [
+        { "uid": "string", "score": "number" }
+      ]
+    }
+  }
+}

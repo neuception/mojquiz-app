@@ -1,0 +1,49 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    // Quizzes: Read-only for everyone, Write only via Admin/Function
+    match /quizzes/{quizId} {
+      allow read: if isSignedIn();
+      allow write: if false; // Admin only
+    }
+
+    // Questions: Read-only for everyone, Write only via Admin/Function
+    match /questions/{questionId} {
+      allow read: if isSignedIn();
+      allow write: if false; // Admin only
+    }
+
+    // Users: Owners can read/write their own profiles
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(userId);
+    }
+
+    // User Quiz History: Owner can read/write
+    match /user_quiz_history/{historyId} {
+      allow read, write: if isSignedIn() && historyId.startsWith(request.auth.uid);
+    }
+
+    // User Question History: Owner can read/write
+    match /user_question_history/{historyId} {
+      allow read, write: if isSignedIn() && historyId.startsWith(request.auth.uid);
+    }
+
+    // Leaderboards: Read for everyone, Write via Cloud Functions
+    match /leaderboards/{type} {
+      allow read: if isSignedIn();
+      allow write: if false; // Function only
+    }
+  }
+}

@@ -1,0 +1,41 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+pubsub-debug.log
+ui-debug.log
+
+# Environment variables (Sensitive)
+.env
+.env.*
+
+# Android
+.gradle/
+local.properties
+*.keystore
+*.jks
+project.properties
+
+# iOS
+.bundle/
+vendor/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/ephemeral/
+Pods/
+DerivedData/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# MacOS
+.DS_Store
