@@ -1,0 +1,47 @@
+name: Deploy Firebase Cloud Functions
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "functions/**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Pull repo code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3. Install Firebase CLI
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      # 4. Install function dependencies
+      - name: Install dependencies
+        working-directory: functions
+        run: npm install
+
+      # 5. Build functions (TypeScript → JS)
+      - name: Build functions
+        working-directory: functions
+        run: npm run build
+
+      # 🔐 6. AUTHENTICATE TO GOOGLE CLOUD (THIS IS YOUR PART)
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      # 🚀 7. DEPLOY FUNCTIONS
+      - name: Deploy Firebase Functions
+        run: firebase deploy --only functions --project mojquiz-abbd8
