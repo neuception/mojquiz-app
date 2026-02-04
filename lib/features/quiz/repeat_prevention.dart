@@ -1,6 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../core/models/history_model.dart';
-import 'quiz_repository.dart';
+import '../../core/models/quiz_model.dart';
 
 part 'repeat_prevention.g.dart';
 

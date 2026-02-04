@@ -18,5 +18,9 @@ class AuthState extends _$AuthState {
     await FirebaseAuth.instance.signOut();
   }
 
+  Future<void> deleteAccount() async {
+    await FirebaseAuth.instance.currentUser?.delete();
+  }
+
   // Google Sign In would go here (requires google_sign_in package)
 }

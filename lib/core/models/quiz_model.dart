@@ -4,7 +4,7 @@ part 'quiz_model.freezed.dart';
 part 'quiz_model.g.dart';
 
 @freezed
-class Quiz with _$Quiz {
+abstract class Quiz with _$Quiz {
   const factory Quiz({
     required String id,
     required String title,
@@ -23,7 +23,7 @@ class Quiz with _$Quiz {
 }
 
 @freezed
-class Question with _$Question {
+abstract class Question with _$Question {
   const factory Question({
     required String id,
     required String quizId,

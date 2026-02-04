@@ -41,14 +41,26 @@ post_install do |installer|
     target.build_configurations.each do |config|
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.0'
       config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'x86_64'
+
+      # Fix for MIInstallerErrorDomain Code 13 (Invalid Signature)
+      config.build_settings['EXPANDED_CODE_SIGN_IDENTITY'] = ""
+      config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
+      config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
       
       # Workaround for 'unsupported option -G' error
       ['ARFLAGS', 'OTHER_LDFLAGS', 'OTHER_LIBTOOLFLAGS', 'OTHER_CFLAGS', 'OTHER_CPLUSPLUSFLAGS'].each do |flag_name|
         flags = config.build_settings[flag_name]
         if flags
-          if flags.include?('-G')
-            puts " [!] Found -G in #{target.name} #{flag_name}, stripping it..."
-            config.build_settings[flag_name] = flags.gsub('-G', '')
+          if flags.is_a?(Array)
+            if flags.include?('-G')
+              puts " [!] Found -G in #{target.name} #{flag_name} (Array), stripping it..."
+              config.build_settings[flag_name] = flags.reject { |f| f == '-G' }
+            end
+          elsif flags.is_a?(String)
+            if flags.include?('-G')
+              puts " [!] Found -G in #{target.name} #{flag_name} (String), stripping it..."
+              config.build_settings[flag_name] = flags.gsub('-G', '').strip
+            end
           end
         end
       end

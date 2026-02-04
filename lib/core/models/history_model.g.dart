@@ -6,16 +6,15 @@ part of 'history_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$QuizHistoryImpl _$$QuizHistoryImplFromJson(Map<String, dynamic> json) =>
-    _$QuizHistoryImpl(
-      id: json['id'] as String,
-      uid: json['uid'] as String,
-      quizId: json['quizId'] as String,
-      score: (json['score'] as num).toInt(),
-      attemptedAt: DateTime.parse(json['attemptedAt'] as String),
-    );
+_QuizHistory _$QuizHistoryFromJson(Map<String, dynamic> json) => _QuizHistory(
+  id: json['id'] as String,
+  uid: json['uid'] as String,
+  quizId: json['quizId'] as String,
+  score: (json['score'] as num).toInt(),
+  attemptedAt: DateTime.parse(json['attemptedAt'] as String),
+);
 
-Map<String, dynamic> _$$QuizHistoryImplToJson(_$QuizHistoryImpl instance) =>
+Map<String, dynamic> _$QuizHistoryToJson(_QuizHistory instance) =>
     <String, dynamic>{
       'id': instance.id,
       'uid': instance.uid,
@@ -24,17 +23,15 @@ Map<String, dynamic> _$$QuizHistoryImplToJson(_$QuizHistoryImpl instance) =>
       'attemptedAt': instance.attemptedAt.toIso8601String(),
     };
 
-_$QuestionHistoryImpl _$$QuestionHistoryImplFromJson(
-        Map<String, dynamic> json) =>
-    _$QuestionHistoryImpl(
+_QuestionHistory _$QuestionHistoryFromJson(Map<String, dynamic> json) =>
+    _QuestionHistory(
       id: json['id'] as String,
       uid: json['uid'] as String,
       questionHash: json['questionHash'] as String,
       lastAnsweredAt: DateTime.parse(json['lastAnsweredAt'] as String),
     );
 
-Map<String, dynamic> _$$QuestionHistoryImplToJson(
-        _$QuestionHistoryImpl instance) =>
+Map<String, dynamic> _$QuestionHistoryToJson(_QuestionHistory instance) =>
     <String, dynamic>{
       'id': instance.id,
       'uid': instance.uid,

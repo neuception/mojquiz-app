@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../core/models/user_model.dart';
-import '../../core/services/firestore_service.dart';
+
 import 'gamification_logic.dart';
 
 part 'gamification_provider.g.dart';

@@ -26,7 +26,7 @@ class ConsentService extends _$ConsentService {
   }
 
   void _loadConsentForm() {
-    ConsentForm.load(
+    ConsentForm.loadConsentForm(
       (consentForm) {
         consentForm.show((formError) {
           // Handle form error or completion

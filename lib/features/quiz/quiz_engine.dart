@@ -7,15 +7,9 @@ part 'quiz_engine.g.dart';
 @riverpod
 class QuizController extends _$QuizController {
   @override
-  AsyncValue<List<Question>> build(String quizId) {
-    _loadQuestions(quizId);
-    return const AsyncValue.loading();
-  }
 
-  Future<void> _loadQuestions(String quizId) async {
-    state = await AsyncValue.guard(() async {
-      return ref.read(quizRepositoryProvider.notifier).getQuestions(quizId);
-    });
+  FutureOr<List<Question>> build(String quizId) async {
+    return ref.watch(quizRepositoryProvider.notifier).getQuestions(quizId);
   }
 
   // Gameplay state management
@@ -35,7 +29,7 @@ class QuizController extends _$QuizController {
 
     if (_currentIndex < questions.length - 1) {
       _currentIndex++;
-      ref.notifyListeners();
+      // ref.notifyListeners(); // Not needed for Notifier
     } else {
       // Quiz finished
     }

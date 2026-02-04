@@ -4,7 +4,7 @@ part 'history_model.freezed.dart';
 part 'history_model.g.dart';
 
 @freezed
-class QuizHistory with _$QuizHistory {
+abstract class QuizHistory with _$QuizHistory {
   const factory QuizHistory({
     required String id,
     required String uid,
@@ -17,7 +17,7 @@ class QuizHistory with _$QuizHistory {
 }
 
 @freezed
-class QuestionHistory with _$QuestionHistory {
+abstract class QuestionHistory with _$QuestionHistory {
   const factory QuestionHistory({
     required String id,
     required String uid,

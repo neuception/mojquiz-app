@@ -1,5 +1,51 @@
 {
-    "functions": {
-        "source": "firebase/functions"
+  "functions": [
+    {
+      "source": "mojquiz",
+      "codebase": "mojquiz",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint",
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
     }
+  ],
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "mojquiz-abbd8",
+          "appId": "1:531429692726:android:7b0f4231b60050a4304f97",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "mojquiz-abbd8",
+          "appId": "1:531429692726:ios:1fa4b08c9bbe58ae304f97",
+          "uploadDebugSymbols": true,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "mojquiz-abbd8",
+          "configurations": {
+            "android": "1:531429692726:android:7b0f4231b60050a4304f97",
+            "ios": "1:531429692726:ios:1fa4b08c9bbe58ae304f97"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
 }
